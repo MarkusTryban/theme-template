@@ -1,4 +1,5 @@
 <nav>
+
   <a href="/">{{ shop.name | escape }}</a>
 
   <ul>
@@ -13,17 +14,20 @@
     <li class="nav-item">
       <a class="nav-link" href="/search">Search</a>
     </li>
-    {%- if shop.customer_accounts_enabled -%} {%- if customer -%}
-    <li>
-      <a href="/account">{{ customer.first_name | | escape }}</a>
-    </li>
-    {%- else -%}
-    <li>
-      <a href="/account/login">Log in</a>
-    </li>
-    {%- endif -%} {%- endif -%}
-    <li>
-      <a href="/cart">Cart ({{ cart.item_count }})</a>
-    </li>
+    {%- if shop.customer_accounts_enabled -%} 
+      {%- if customer -%}
+        <li>
+          <a href="/account">{{ customer.first_name | escape }}</a>
+        </li>
+      {%- else -%}
+      <li>
+        <a href="/account/login">Log in</a>
+      </li>
+      {%- endif -%} 
+    {%- endif -%}
+      <li>
+        <a href="/cart">Cart ({{ cart.item_count }})</a>
+      </li>
   </ul>
+
 </nav>
