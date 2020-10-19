@@ -2,12 +2,12 @@
 {
   "name": "Header",
   "settings": [
-  {
-    "id": "primary_link_list",
-    "type": "link_list",
-    "label": "Primary navigation menu",
-    "default": "main-menu"
-  }
+    {
+      "id": "primary_link_list",
+      "type": "link_list",
+      "label": "Primary navigation menu",
+      "default": "main-menu"
+    }
   ]
 }
 {% endschema %}
@@ -32,18 +32,20 @@
       {%- else -%}
         {%- assign has_child_link_list = false -%}
       {%- endif -%}
-    <li>
-      <a href="{{ link.url }}">
-        {{ link.title | escape }}
-      </a>
-      {%- if has_child_link_list -%}
-        <div class="dropdown-menu">
-          {%- for child_link in child_link_list.links -%}
-            <a href="{{ child_link.url}}">{{ child_link.title | escape}}</a>
-          {%- endfor -%}
-        </div>
-      {%- endif -%}
-    </li>
+      <li>
+        <a href="{{ link.url }}">
+          {{ link.title | escape }}
+        </a>
+        {%- if has_child_link_list -%}
+          <div class="dropdown-menu">
+            {%- for child_link in child_link_list.links -%}
+              <a href="{{ child_link.url}}">
+                {{ child_link.title | escape}}
+              </a>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </li>
     {%- endfor -%}
   </ul>
 
@@ -51,20 +53,20 @@
     <li class="nav-item">
       <a class="nav-link" href="/search">Search</a>
     </li>
-    {%- if shop.customer_accounts_enabled -%} 
+    {%- if shop.customer_accounts_enabled -%}
       {%- if customer -%}
         <li>
           <a href="/account">{{ customer.first_name | escape }}</a>
         </li>
       {%- else -%}
-      <li>
-        <a href="/account/login">Log in</a>
-      </li>
-      {%- endif -%} 
+        <li>
+          <a href="/account/login">Log in</a>
+        </li>
+      {%- endif -%}
     {%- endif -%}
-      <li>
-        <a href="/cart">Cart ({{ cart.item_count }})</a>
-      </li>
+    <li>
+      <a href="/cart">Cart ({{ cart.item_count }})</a>
+    </li>
   </ul>
 
 </nav>
