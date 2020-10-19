@@ -1,6 +1,23 @@
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+  {
+    "id": "primary_link_list",
+    "type": "link_list",
+    "label": "Primary navigation menu",
+    "default": "main-menu"
+  }
+  ]
+}
+{% endschema %}
+
 <nav>
 
   <a href="/">{{ shop.name | escape }}</a>
+
+  {%- assign primary_link_list = linklists[section.settings.primary_link_list] -%}
+  {%- assign primary_link_list = blank -%}
 
   <ul>
     {%- for link in linklists.main-menu.links -%}
