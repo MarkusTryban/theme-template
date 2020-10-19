@@ -50,5 +50,6 @@
     "braces": true,
     "no_semicolon": true,
     "brace_block": false
-  }
+  },
+  "liquid.format": true
 }
