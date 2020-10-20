@@ -23,7 +23,7 @@
   {%- assign primary_link_list = linklists[section.settings.primary_link_list] -%}
   {%- assign primary_link_list = blank -%}
 
-  <ul>
+  <ul class="navbar-nav mr-auto">
     {%- for link in primary_link_list.links -%}
       {%- assign child_link_list_handle = link.title | handle -%}
       {%- assign child_link_list = linklists[child_link_list_handle] -%}
@@ -49,23 +49,23 @@
     {%- endfor -%}
   </ul>
 
-  <ul>
+  <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link" href="/search">Search</a>
     </li>
     {%- if shop.customer_accounts_enabled -%}
       {%- if customer -%}
-        <li>
-          <a href="/account">{{ customer.first_name | escape }}</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/account">{{ customer.first_name | escape }}</a>
         </li>
       {%- else -%}
-        <li>
-          <a href="/account/login">Log in</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/account/login">Log in</a>
         </li>
       {%- endif -%}
     {%- endif -%}
-    <li>
-      <a href="/cart">Cart ({{ cart.item_count }})</a>
+    <li class="nav-item">
+      <a class="nav-link" href="/cart">Cart ({{ cart.item_count }})</a>
     </li>
   </ul>
 
