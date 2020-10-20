@@ -12,9 +12,9 @@
 }
 {% endschema %}
 
-<nav>
+<nav class='navbar navbar-toggleable-md navbar-light bg-faded' >
 
-  <a href="/">{{ shop.name | escape }}</a>
+  <a class='navbar-brand' href="/">{{ shop.name | escape }}</a>
 
   {%- comment -%}
     The following finds the navigation menu (link list) configured in the section settings.
@@ -32,14 +32,14 @@
       {%- else -%}
         {%- assign has_child_link_list = false -%}
       {%- endif -%}
-      <li>
-        <a href="{{ link.url }}">
+      <li class='nav-item' >
+        <a class='nav-link' href="{{ link.url }}">
           {{ link.title | escape }}
         </a>
         {%- if has_child_link_list -%}
           <div class="dropdown-menu">
             {%- for child_link in child_link_list.links -%}
-              <a href="{{ child_link.url}}">
+              <a href="{{ child_link.url}}" class='dropdown-item' >
                 {{ child_link.title | escape}}
               </a>
             {%- endfor -%}
